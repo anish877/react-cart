@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCartItems } from '../store/cartItemsState';
-import { MinusIcon, PlusIcon, ShoppingCart, CreditCard, Package, Truck, Check, Loader2, TrashIcon, ShieldCheck } from 'lucide-react';
+import { MinusIcon, PlusIcon, ShoppingCart, CreditCard, Package, Truck, Check, Loader2, TrashIcon, ShieldCheck,ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AmazonCart = () => {
@@ -82,11 +82,18 @@ const AmazonCart = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8 bg-gray-50 min-h-screen">
-            <h1 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-                <ShoppingCart className="h-8 w-8 text-blue-600" />
-                Your Cart ({carts.length} {carts.length === 1 ? 'item' : 'items'})
-            </h1>
-            
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+                <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                    <ShoppingCart className="h-8 w-8 text-blue-600" />
+                    Your Cart ({carts.length} {carts.length === 1 ? 'item' : 'items'})
+                </h1>
+                <Link to="/">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-white text-blue-600 hover:bg-blue-50 rounded-lg border border-blue-200 transition-colors shadow-sm">
+                        <ArrowLeft className="h-4 w-4" />
+                        Back to Shopping
+                    </button>
+                </Link>
+            </div>
             <div className="flex flex-col lg:flex-row gap-8">
                 <div className="lg:w-2/3">
                     <div className="bg-white rounded-xl shadow-sm border border-gray-100">
@@ -254,5 +261,6 @@ const AmazonCart = () => {
         </div>
     );
 };
+
 
 export default AmazonCart;
