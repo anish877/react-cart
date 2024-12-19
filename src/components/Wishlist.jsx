@@ -9,7 +9,7 @@ import ProductCard from './ProductCard';
 // Main Wishlist Component
 const Wishlist = () => {
   const { products, getProduct, isProductLoading } = wishlistItemStore();
-  const [inputValue, setInputValue] = useState("phone");
+  const [inputValue, setInputValue] = useState("");
   const { carts, setCartItem } = useCartItems();
 
   useEffect(() => {
